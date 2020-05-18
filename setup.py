@@ -1,16 +1,30 @@
 import setuptools
 
+def read(fname):
+    """ Return file content. """
+    with open(fname) as f:
+        content = f.read()
+
+    return content
+
+description = "A plug-n-play package fetch test data from WPT and parse for specific keys"
+try:
+    long_description = read('README.MD')
+except IOError:
+    long_description = description
+
 setuptools.setup(
     name="wpt-parser",
     package=['wpt-parser'],
     version="0.0.1",
     author="Bharat Sinha",
-    author_email="bsinha@ancestry.com",
-    description="A plug-n-play package to start using new relic APIs for data gathering",
-    url="https://github.com/Bharat23/newrelic-api-parser",
+    author_email="bharat.sinha.2307@gmail.com",
+    description=description,
+    long_description=long_description,
+    url="https://github.com/Bharat23/wpt-parser",
     packages=setuptools.find_packages(),
     license='MIT',
-    keywords = ['WPT parser', 'wpt', 'json'],
+    keywords = ['WPT parser', 'wpt', 'speed curve', 'webpagetest'],
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
