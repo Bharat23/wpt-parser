@@ -1,5 +1,7 @@
 import requests
 
+from WPTParser import WPTParser
+
 class Fetch():
 
     def __init__(self, headers: dict = {}):
@@ -10,7 +12,7 @@ class Fetch():
 
     def json(self, test_id: str='200518_Y2_c736f1cb25d54ac8cd93ebdfdcf6375b') -> dict:
         # api rejects the request with unauthorized if user-agent header not set
-        url = '/jsonResult.php?test={0}'.format(test_id)
+        url = '{0}/jsonResult.php?test={1}'.format(WPTParser().WPT_URI(), test_id)
         json_data = requests.get(url, headers = self.headers)
         json_data = json_data.json()
         return json_data

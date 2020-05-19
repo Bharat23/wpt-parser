@@ -21,6 +21,7 @@ setuptools.setup(
     author_email="bharat.sinha.2307@gmail.com",
     description=description,
     long_description=long_description,
+    long_description_content_type='text/markdown',
     url="https://github.com/Bharat23/wpt-parser",
     packages=setuptools.find_packages(),
     license='MIT',
