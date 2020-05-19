@@ -15,3 +15,6 @@ venv_*
 
 # ingnore local test file
 test.py
+
+# ignore test output file
+*.json
