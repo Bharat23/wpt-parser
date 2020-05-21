@@ -25,7 +25,7 @@ setuptools.setup(
     url="https://github.com/Bharat23/wpt-parser",
     packages=setuptools.find_packages(),
     license='MIT',
-    keywords = ['WPT parser', 'wpt', 'speed curve', 'webpagetest'],
+    keywords = ['WPT parser', 'wpt', 'speed curve', 'webpagetest', 'json'],
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
