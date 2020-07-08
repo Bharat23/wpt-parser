@@ -121,6 +121,7 @@
 | Method | Params | type | default | Description 
 | --- | --- | --- | --- | --- |
 | json | test_id | str | None | test_id for a wpt or a speed curve test
+| json | WPT_URI | str | 'https://webpagetest.org' | URI for your WPT instance
 
 ### Note:
  - The package is under development and will be prone to more frequent updates
