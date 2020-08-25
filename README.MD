@@ -115,6 +115,7 @@
 | pick | key | str | None | selects a key to be returned
 | pick | keys | list | [] | selects a list key to be returned
 | pick | key_delimiter | str | "." | Separator used to identify multi level JSON
+| pick | key_mapping | dict | {} | Mapping of keys for picking with custom key name. 
 
 - Fetch
 
