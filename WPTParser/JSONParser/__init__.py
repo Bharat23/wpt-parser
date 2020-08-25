@@ -5,6 +5,7 @@ from WPTParser.Constants import RegexConstants
 from WPTParser.JSONParser.KeyDataExtracter import KeyDataExtracter
 from WPTParser.JSONParser.ListDataExtracter import ListDataExtracter
 from WPTParser.JSONParser.ObjectListDataExtracter import ObjectListDataExtracter
+from WPTParser.JSONParser.ListRangeDataExtractor import ListRangeDataExtractor
 
 class JSONParser():
 
@@ -12,7 +13,7 @@ class JSONParser():
         self.json = json
         self.picked_json = {}
 
-    def pick(self, key: str = None, keys: list = [], key_delimiter: str = '.'):
+    def pick(self, key: str = None, keys: list = [], key_delimiter: str = '.', key_mapping: dict = {}):
         """Extract key from provided JSON object and returns new object of specified keys
 
         Keyword Arguments:
@@ -25,11 +26,11 @@ class JSONParser():
         """
         if key is not None:
             final_obj = self._recursive_find(self.json, key.split(key_delimiter), 0)
-            self.picked_json[key] = final_obj
+            self.picked_json[key_mapping.get(key, key)] = final_obj
         elif len(keys) > 0:
             for key in keys:
                 final_obj = self._recursive_find(self.json, key.split(key_delimiter), 0)
-                self.picked_json[key] = final_obj
+                self.picked_json[key_mapping.get(key, key)] = final_obj
         return self
 
     def _recursive_find(self, obj: dict = {}, level_list: list = [], index: int = 0):
@@ -54,7 +55,7 @@ class JSONParser():
                 else:
                     return None
         except Exception as ex:
-            print('error', ex)
+            print('error:', ex)
             return None
 
     def _process_key(self, key: str):
@@ -73,6 +74,9 @@ class JSONParser():
         elif re.match(RegexConstants.DICT_ARRAY_SEARCH, key):
             key = re.findall(RegexConstants.DICT_ARRAY_SEARCH, key)[0]
             extracter = ObjectListDataExtracter()
+        # elif re.match(RegexConstants.RANGE_INDEXED_ARRAY, key):
+        #     key = re.findall(RegexConstants.RANGE_INDEXED_ARRAY, key)[0]
+        #     extracter = ListRangeDataExtractor()
         return key, extracter
 
 

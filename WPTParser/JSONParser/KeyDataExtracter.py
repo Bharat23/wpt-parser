@@ -6,4 +6,7 @@ class KeyDataExtracter(DataExtracter):
         super().__init__()
 
     def extract(self, obj: dict, key: str):
-        return obj.get(key, None)
+        try:
+            return obj.get(key, None)
+        except Exception as ex:
+            return None
