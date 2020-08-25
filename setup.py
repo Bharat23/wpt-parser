@@ -16,7 +16,7 @@ except IOError:
 setuptools.setup(
     name="wpt-parser",
     package=['wpt-parser'],
-    version="0.0.3",
+    version="0.0.4",
     author="Bharat Sinha",
     author_email="bharat.sinha.2307@gmail.com",
     description=description,

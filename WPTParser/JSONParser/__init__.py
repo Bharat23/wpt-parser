@@ -74,6 +74,7 @@ class JSONParser():
         elif re.match(RegexConstants.DICT_ARRAY_SEARCH, key):
             key = re.findall(RegexConstants.DICT_ARRAY_SEARCH, key)[0]
             extracter = ObjectListDataExtracter()
+        # TODO: add support for range of array index
         # elif re.match(RegexConstants.RANGE_INDEXED_ARRAY, key):
         #     key = re.findall(RegexConstants.RANGE_INDEXED_ARRAY, key)[0]
         #     extracter = ListRangeDataExtractor()
