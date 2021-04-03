@@ -1,6 +1,6 @@
 # WPT Parser
 
-[![PyPI version](https://badge.fury.io/py/wpt-parser.svg)](https://badge.fury.io/py/wpt-parser)
+[![Upload Python Package](https://github.com/Bharat23/wpt-parser/actions/workflows/python-publish.yml/badge.svg)](https://github.com/Bharat23/wpt-parser/actions/workflows/python-publish.yml)
 
 - ## [Getting Started](#getting-started)
     * [Prerequiste](#prerequiste)
