@@ -1,5 +1,7 @@
 # WPT Parser
 
+[![PyPI version](https://badge.fury.io/py/wpt-parser.svg)](https://badge.fury.io/py/wpt-parser)
+
 - ## [Getting Started](#getting-started)
     * [Prerequiste](#prerequiste)
     * [Installation](#installation)
