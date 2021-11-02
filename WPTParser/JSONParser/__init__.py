@@ -1,11 +1,13 @@
 # TODO: ADD support for array type fields while parsing eg: data.Median.[0].value
 import re
+import logging
 
 from WPTParser.Constants import RegexConstants
 from WPTParser.JSONParser.KeyDataExtracter import KeyDataExtracter
 from WPTParser.JSONParser.ListDataExtracter import ListDataExtracter
 from WPTParser.JSONParser.ObjectListDataExtracter import ObjectListDataExtracter
 from WPTParser.JSONParser.ListRangeDataExtractor import ListRangeDataExtractor
+from WPTParser.JSONParser.ObjectListDataRegexExtracter import ObjectListDataRegexExtracter
 
 class JSONParser():
 
@@ -55,7 +57,7 @@ class JSONParser():
                 else:
                     return None
         except Exception as ex:
-            print('error:', ex)
+            logging.error(ex)
             return None
 
     def _process_key(self, key: str):
@@ -74,6 +76,9 @@ class JSONParser():
         elif re.match(RegexConstants.DICT_ARRAY_SEARCH, key):
             key = re.findall(RegexConstants.DICT_ARRAY_SEARCH, key)[0]
             extracter = ObjectListDataExtracter()
+        elif re.match(RegexConstants.DICT_ARRAY_REGEX_SEARCH, key):
+            key = re.findall(RegexConstants.DICT_ARRAY_REGEX_SEARCH, key)[0]
+            extracter = ObjectListDataRegexExtracter()
         # TODO: add support for range of array index
         # elif re.match(RegexConstants.RANGE_INDEXED_ARRAY, key):
         #     key = re.findall(RegexConstants.RANGE_INDEXED_ARRAY, key)[0]
