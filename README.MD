@@ -112,6 +112,7 @@
         - When you have a unordered list of object and you want extract a specific object from the list based on the key and a regex of value inside the object
         - For extraction from beyond first level, append keys with a separator and provide `key_delimiter` for the program to recognize the start of next level.
         - The regex search is case sensitive. You do not need to add `//` or `r''` to write your regex.
+        - The search will find all the matches and return a list
         - Example: 
         ```
         """
@@ -136,7 +137,7 @@
         """
         # key to extract second level, and from that extarct the object with name matching Awesome
         # keylevel11.keylevel23.[{name~Awesome}]
-        # return {name: Awesome}
+        # return [{name: Awesome}]
         ```
 
 ### Available Methods

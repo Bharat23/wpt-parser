@@ -15,16 +15,16 @@ class ObjectListDataRegexExtracter(DataExtracter):
             key {str} -- key that needs to be processed
 
         Returns:
-            {} -- The found dict
+            [] -- The found list of matches
         """
         try:
+            out_obj_list = []
             key = key.replace(' ', '')
             dict_key, dict_value = key.split('~')
             for obj in obj_list:
-                
                 regex_dict_value = re.compile(dict_value)
                 if dict_key in obj and re.search(regex_dict_value, obj[dict_key]):
-                    return obj
-            return None
+                    out_obj_list.append(obj)
+            return out_obj_list
         except Exception as ex:
-            return None
+            return []
