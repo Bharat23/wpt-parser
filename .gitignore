@@ -18,3 +18,6 @@ test.py
 
 # ignore test output file
 *.json
+
+# ignore builds
+build
